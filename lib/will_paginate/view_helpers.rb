@@ -42,7 +42,7 @@ module WillPaginate
 
     # Returns HTML representing page links for a WillPaginate::Collection-like object.
     # In case there is no more than one page in total, nil is returned.
-    # 
+    #
     # ==== Options
     # * <tt>:class</tt> -- CSS class name for the generated DIV (default: "pagination")
     # * <tt>:previous_label</tt> -- default: "« Previous"
@@ -61,7 +61,7 @@ module WillPaginate
     #
     # All options not recognized by will_paginate will become HTML attributes on the container
     # element for pagination links (the DIV). For example:
-    # 
+    #
     #   <%= will_paginate @posts, :style => 'color:blue' %>
     #
     # will result in:
@@ -150,7 +150,7 @@ module WillPaginate
         keys = [:"#{model_key}.#{i18n_key}", i18n_key]
         params = {
           :model => model_name, :count => collection.total_entries,
-          :from => collection.offset + 1, :to => collection.offset + collection.length
+          :from => collection.offset + 1, :to => collection.offset + collection.size
         }
         will_paginate_translate keys, params do |_, opts|
           %{Displaying %s #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} %
